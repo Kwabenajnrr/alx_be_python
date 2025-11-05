@@ -1,10 +1,10 @@
-def future_age():
-    age = int(input("How old are you? "))
-    future_year = 2050
-    current_year = 2023
-    future_age = age + (future_year - current_year)
-    return future_age
+def financial():
+    monthly_income = int(input("How old are you? "))
+    monthly_expenses = int(input("How old are you? "))
+    monthly_saving = monthly_income - monthly_expenses
+
+    return monthly_saving
 
 # Call the function and display the result
-result = future_age()
+result = financial()
 print("In 2050, you will be", result, "years old.")
