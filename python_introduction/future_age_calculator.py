@@ -1,9 +1,10 @@
+def future_age():
+    age = int(input("How old are you? "))
+    future_year = 2050
+    current_year = 2023
+    future_age = age + (future_year - current_year)
+    return future_age
 
-
-age = int(input("How old are you?: "))
-current_year = 27
-
-future_age = age + current_year
-
-
-print(f"In 2050, you will be {future_age} years old")
+# Call the function and display the result
+result = future_age()
+print("In 2050, you will be", result, "years old.")
