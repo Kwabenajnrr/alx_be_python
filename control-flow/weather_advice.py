@@ -1,5 +1,3 @@
-condition = ["sunny, rainy, cold"]
-
 weather = input("Whats the weather like today? (sunny/rainy/cold): ")
 
 
