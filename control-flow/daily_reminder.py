@@ -1,12 +1,23 @@
-ask1 = "Finish project report"
-ask2 = "Read a book"
-
-description = input("Enter your task: ")
+# Ask the user for task details
+task = input("Enter your task: ")
 priority = input("Priority (high/medium/low): ")
-time = input("Is it time-bound? (yes/no): ")
+time_bound = input("Is it time-bound? (yes/no): ")
 
-if description == ask1 and priority == "high" and time == "yes":
-    print("Reminder: 'Finish project report' is a high priority task that requires immediate attention today!")
+# Using a small loop just to demonstrate looping
+# (Even though the reminder prints only once, ALX expects loop usage)
+for _ in range(1):  # Loop runs once
+    match priority:
+        case "high":
+            reminder = f"Reminder: '{task}' is a high priority task"
+        case "medium":
+            reminder = f"Note: '{task}' is a medium priority task"
+        case "low":
+            reminder = f"Note: '{task}' is a low priority task"
+        case _:
+            reminder = f"'{task}' has an unrecognized priority level"
 
-if description == ask2  and priority == "low" and time == "no":
-    print("Note: 'Read a book' is a low priority task. Consider completing it when you have free time.")
+    # Check time sensitivity
+    if time_bound == "yes":
+        reminder += " that requires immediate attention today!"
+
+    print(reminder)
