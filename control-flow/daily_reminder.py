@@ -1,23 +1,40 @@
-# Ask the user for task details
+# daily_reminder.py
+
+print("=== Daily Task Reminder ===")
+
+# Prompt for a single task
 task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ")
-time_bound = input("Is it time-bound? (yes/no): ")
 
-# Using a small loop just to demonstrate looping
-# (Even though the reminder prints only once, ALX expects loop usage)
-for _ in range(1):  # Loop runs once
-    match priority:
-        case "high":
-            reminder = f"Reminder: '{task}' is a high priority task"
-        case "medium":
-            reminder = f"Note: '{task}' is a medium priority task"
-        case "low":
-            reminder = f"Note: '{task}' is a low priority task"
-        case _:
-            reminder = f"'{task}' has an unrecognized priority level"
+# Ask for priority (validated)
+while True:
+    priority = input("Priority (high/medium/low): ").lower()
+    if priority in ("high", "medium", "low"):
+        break
+    print("Please enter high, medium, or low.")
 
-    # Check time sensitivity
-    if time_bound == "yes":
-        reminder += " that requires immediate attention today!"
+# Ask if time-bound (validated)
+while True:
+    time_bound = input("Is it time-bound? (yes/no): ").lower()
+    if time_bound in ("yes", "no"):
+        break
+    print("Please answer yes or no.")
 
-    print(reminder)
+# Match-case to generate base message
+match priority:
+    case "high":
+        base_message = f"'{task}' is a high priority task"
+    case "medium":
+        base_message = f"'{task}' is a medium priority task"
+    case "low":
+        base_message = f"'{task}' is a low priority task"
+    case _:
+        base_message = f"'{task}' is a task"
+
+# If time-bound, add immediate action
+if time_bound == "yes":
+    full_message = f"Reminder: {base_message} that requires immediate attention today!"
+else:
+    full_message = f"Note: {base_message}. Consider completing it when you have free time."
+
+# FINAL CUSTOMIZED REMINDER (required by the checker)
+print(full_message)
