@@ -13,5 +13,5 @@ class Book:
 
     
     def __del__(self):
-        print(f"Deleting {self.year}")
+        print(f"Deleting {self.title}")
     
